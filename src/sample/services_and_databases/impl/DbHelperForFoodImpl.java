@@ -15,7 +15,7 @@ import java.util.List;
 public class DbHelperForFoodImpl implements DbHelperForFood {
 
     private Connection getConnection() throws SQLException {
-        Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","010689");
+        Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/admin_of_food_service","postgres","010689");
         return connection;
     }
 

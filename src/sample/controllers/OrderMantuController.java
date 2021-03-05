@@ -8,11 +8,13 @@ import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import sample.models.Food;
 
-public class MantuController {
+public class OrderMantuController {
 
     @FXML
     private ResourceBundle resources;
@@ -26,21 +28,19 @@ public class MantuController {
     @FXML
     private Button btnCancel;
 
-    @FXML
-    private ComboBox<Food> comboBoxAmount;
 
     @FXML
     void onButtonClicked(ActionEvent event) {
         if (event.getSource().equals(btnOrder)) {
-
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Заказыныз кабыл алынды!", ButtonType.FINISH);
+            alert.show();
         } else if (event.getSource().equals(btnCancel)) {
             btnCancel.getScene().getWindow().hide();
         }
     }
 
+
     @FXML
     void initialize() {
-        List<Food> list = new ArrayList<>();
-        comboBoxAmount.setItems((ObservableList<Food>) list);
     }
 }

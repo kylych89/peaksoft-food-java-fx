@@ -27,9 +27,6 @@ public class RegisterController {
     private TextField txtLogin;
 
     @FXML
-    private TextField txtId;
-
-    @FXML
     private Button btnSave;
 
     @FXML
@@ -53,7 +50,6 @@ public class RegisterController {
     }
 
     private void onSaveButtonClicked() {
-        String id = txtId.getId();
         String name = txtName.getText();
         String login = txtLogin.getText();
         String passwordText = txtPassword.getText();

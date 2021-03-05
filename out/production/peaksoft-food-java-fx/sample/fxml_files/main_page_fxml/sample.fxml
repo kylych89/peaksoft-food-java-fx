@@ -21,7 +21,7 @@
       </Label>
       <ImageView fitHeight="165.0" fitWidth="244.0" layoutX="400.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../icons/Food.jpg" />
+            <Image url="@../../icons/Food.jpg" />
          </image>
       </ImageView>
       <Label layoutX="455.0" layoutY="310.0" prefHeight="30.0" prefWidth="134.0" text="Тамактардын туру" textFill="#dd6262">
@@ -29,19 +29,19 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <ImageView fx:id="btnMantu" fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../icons/i.jpg" />
+            <Image url="@../../icons/i.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="btnLagman" fitHeight="150.0" fitWidth="250.0" layoutX="362.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="250.0" layoutX="362.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../icons/maxresdefault.jpg" />
+            <Image url="@../../icons/maxresdefault.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="btnShorpo" fitHeight="141.0" fitWidth="223.0" layoutX="705.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="141.0" fitWidth="223.0" layoutX="705.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../icons/shorpo-409464.jpg" />
+            <Image url="@../../icons/shorpo-409464.jpg" />
          </image>
       </ImageView>
       <Label layoutX="136.0" layoutY="567.0" prefHeight="23.0" prefWidth="134.0" text="Манты">
