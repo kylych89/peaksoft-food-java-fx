@@ -6,11 +6,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import peaksoft_foods.models.Food;
 import peaksoft_foods.services_and_databases.DbHelperForFood;
 import peaksoft_foods.services_and_databases.impl.DbHelperForFoodImpl;
 
 public class AddFoodsController {
+
+    private Stage stage;
+    private Food food;
 
     @FXML
     private ResourceBundle resources;
@@ -47,10 +51,17 @@ public class AddFoodsController {
         double price = Double.parseDouble(txtPrice.getText());
         int amount = Integer.parseInt(txtAmount.getText());
 
-        Food food = new Food(name,price,amount);
+        food.setName(name);
+        food.setPrice(price);
+        food.setAmount(amount);
 
         DbHelperForFood forFood = new DbHelperForFoodImpl();
-        forFood.saveFood(food);
+        if (food.getId() == null) {
+            forFood.saveFood(food);
+        } else {
+            forFood.updateFood(food);
+        }
+
         clearFields();
     }
 
@@ -62,5 +73,18 @@ public class AddFoodsController {
 
     @FXML
     void initialize() {
+    }
+
+    public void initData(Stage stage, Food food) {
+        this.stage = stage;
+
+        if (food != null) {
+            this.food = food;
+            txtName.setText(food.getName());
+            txtPrice.setText(String.valueOf(Double.parseDouble(String.valueOf(food.getPrice()))));
+            txtAmount.setText(String.valueOf(food.getAmount()));
+        } else {
+            this.food = new Food();
+        }
     }
 }

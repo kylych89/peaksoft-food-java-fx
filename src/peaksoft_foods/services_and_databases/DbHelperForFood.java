@@ -9,5 +9,6 @@ import java.util.List;
  */
 public interface DbHelperForFood {
     void saveFood(Food food);
+    void updateFood(Food food);
     List<Food> getAllFoods();
 }

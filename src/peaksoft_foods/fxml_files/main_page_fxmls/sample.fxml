@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1122.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="peaksoft_foods.controllers.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1122.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="peaksoft_foods.controllers.MainController">
    <children>
-      <Button fx:id="btnRegister" layoutX="907.0" layoutY="72.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Катталуу" textFill="#1938e4">
+      <Button fx:id="btnRegister" defaultButton="true" layoutX="907.0" layoutY="72.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Катталуу" textFill="#1938e4">
          <font>
             <Font size="14.0" />
          </font>
@@ -62,5 +62,6 @@
       <Button fx:id="btnOrderMantu" defaultButton="true" layoutX="218.0" layoutY="569.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Заказ" />
       <Button fx:id="btnOrderLagman" defaultButton="true" layoutX="566.0" layoutY="568.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Заказ" />
       <Button fx:id="btnOrderShorpo" defaultButton="true" layoutX="884.0" layoutY="568.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Заказ" />
+      <Button fx:id="btnDatabase" defaultButton="true" layoutX="36.0" layoutY="72.0" mnemonicParsing="false" onAction="#onButtonClicked" prefHeight="30.0" prefWidth="200.0" text="Тамактардын базадагы тизмеги" />
    </children>
 </AnchorPane>

@@ -3,10 +3,8 @@ package peaksoft_foods.services_and_databases.impl;
 import peaksoft_foods.models.Food;
 import peaksoft_foods.services_and_databases.DbHelperForFood;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,8 +36,65 @@ public class DbHelperForFoodImpl implements DbHelperForFood {
     }
 
     @Override
-    public List<Food> getAllFoods() {
+    public void updateFood(Food food) {
+        try {
+            Class.forName("org.postgresql.Driver");
+            Connection connection = getConnection();
+            PreparedStatement ps = connection.prepareStatement("update foods set name = ? , price = ?, amount = ? where id = ?");
+            ps.setLong(1,food.getId());
+            ps.setString(2,food.getName());
+            ps.setDouble(3,food.getPrice());
+            ps.setInt(4,food.getAmount());
+            ps.executeUpdate();
+            connection.close();
+            ps.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
-        return null;
+    @Override
+    public List<Food> getAllFoods() {
+        List<Food> list = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = getConnection();
+            ps = connection.prepareStatement("select id, name , price, amount from foods");
+            resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                Food food = new Food();
+                food.setId(resultSet.getLong(1));
+                food.setName(resultSet.getString(2));
+                food.setPrice(resultSet.getDouble(3));
+                food.setAmount(resultSet.getInt(4));
+                list.add(food);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            if (connection == null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } else if (ps == null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } else if (resultSet == null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return list;
     }
 }

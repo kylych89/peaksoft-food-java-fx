@@ -6,18 +6,20 @@ package peaksoft_foods.models;
 public class Food {
     private Long id;
     private String name;
-    private double price;
-    private int amount;
+    private Double price;
+    private Integer amount;
 
+    public Food() {
+    }
 
-    public Food(Long id, String name, double price, int amount) {
+    public Food(Long id, String name, Double price, Integer amount) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.amount = amount;
     }
 
-    public Food(String name, double price, int amount) {
+    public Food(String name, Double price, Integer amount) {
         this.name = name;
         this.price = price;
         this.amount = amount;
@@ -39,19 +41,19 @@ public class Food {
         this.name = name;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public int getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(Integer amount) {
         this.amount = amount;
     }
 

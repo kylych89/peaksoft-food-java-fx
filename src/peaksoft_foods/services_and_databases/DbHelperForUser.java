@@ -10,5 +10,7 @@ import java.util.List;
 public interface DbHelperForUser {
     void saveUser(User user);
 
+
+
     List<User> getAllUser();
 }
