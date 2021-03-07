@@ -7,58 +7,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1122.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="peaksoft_foods.controllers.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="783.0" prefWidth="1022.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="peaksoft_foods.controllers.MainController">
    <children>
-      <Button fx:id="btnRegister" defaultButton="true" layoutX="1035.0" layoutY="17.0" mnemonicParsing="false" onAction="#onButtonClicked" prefHeight="25.0" prefWidth="78.0" text="Катталуу" />
-      <Label layoutX="392.0" layoutY="15.0" prefHeight="30.0" prefWidth="395.0" text="PEAKSOFT МЕНЕН ТАМАКТАНУУ ДААМДУУ!!!" textFill="#3b7c3d">
+      <Button fx:id="btnRegister" defaultButton="true" layoutX="937.0" layoutY="7.0" mnemonicParsing="false" onAction="#onButtonClicked" prefHeight="25.0" prefWidth="78.0" text="Катталуу" />
+      <Label layoutX="390.0" layoutY="4.0" prefHeight="30.0" prefWidth="395.0" text="PEAKSOFT МЕНЕН ТАМАКТАНУУ ДААМДУУ!!!" textFill="#3b7c3d">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <ImageView fitHeight="165.0" fitWidth="244.0" layoutX="467.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="6.0" layoutY="2.0" prefHeight="17.0" prefWidth="139.0" text="Байланышуу дарегибиз :" textFill="#dd6262" />
+      <Button fx:id="btnEnter" defaultButton="true" layoutX="881.0" layoutY="7.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Кирүү" />
+      <Label layoutX="6.0" layoutY="23.0" prefHeight="17.0" prefWidth="105.0" text="Тел : 0505 010 196" textFill="#dd6262" />
+      <Label layoutX="152.0" layoutY="2.0" prefHeight="17.0" prefWidth="194.0" text="Бишкек шаары Ибраимова № 103" textFill="#dd6262" />
+      <ImageView fitHeight="728.0" fitWidth="1071.0" layoutX="6.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../icons/Food.jpg" />
+            <Image url="@../../icons/main.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="523.0" layoutY="310.0" prefHeight="30.0" prefWidth="134.0" text="Тамактардын туру" textFill="#dd6262">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../icons/i.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="250.0" layoutX="465.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../icons/maxresdefault.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="141.0" fitWidth="223.0" layoutX="820.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../icons/shorpo-409464.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="136.0" layoutY="567.0" prefHeight="23.0" prefWidth="134.0" text="Манты">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="561.0" layoutY="567.0" prefHeight="23.0" prefWidth="134.0" text="Лагман">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="886.0" layoutY="567.0" prefHeight="23.0" prefWidth="134.0" text="Шорпо">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnOrderMantu" defaultButton="true" layoutX="218.0" layoutY="569.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Заказ" />
-      <Button fx:id="btnOrderLagman" defaultButton="true" layoutX="672.0" layoutY="568.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Заказ" />
-      <Button fx:id="btnOrderShorpo" defaultButton="true" layoutX="997.0" layoutY="568.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Заказ" />
-      <Button fx:id="btnDatabase" defaultButton="true" layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#onButtonClicked" prefHeight="25.0" prefWidth="200.0" text="Тамактардын базадагы тизмеги" />
-      <Button fx:id="btnEnter" defaultButton="true" layoutX="968.0" layoutY="17.0" mnemonicParsing="false" onAction="#onButtonClicked" text="Кирүү" />
    </children>
 </AnchorPane>

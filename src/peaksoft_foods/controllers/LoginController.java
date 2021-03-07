@@ -1,11 +1,15 @@
 package peaksoft_foods.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import peaksoft_foods.services_and_databases.LoginService;
 import peaksoft_foods.services_and_databases.impl.LoginServiceImpl;
 
@@ -48,10 +52,24 @@ public class LoginController {
 
         if (result) {
             System.out.println("ok");
+            close();
+            showMainPage();
         } else {
             System.out.println("error");
         }
 
+    }
+
+    private void showMainPage() {
+        Stage stage = new Stage();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/peaksoft_foods/fxml_files/add_and_register_fxmls/addFoodsToDatabase.fxml"));
+            loader.load();
+            stage.setScene(new Scene(loader.getRoot()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.show();
     }
 
     private void close() {
