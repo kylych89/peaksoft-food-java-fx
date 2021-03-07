@@ -9,8 +9,7 @@ import java.util.List;
  */
 public interface DbHelperForUser {
     void saveUser(User user);
-
-
+    User getUserByLogin(String login);
 
     List<User> getAllUser();
 }

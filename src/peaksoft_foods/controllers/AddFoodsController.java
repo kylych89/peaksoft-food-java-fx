@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import peaksoft_foods.models.Food;
 import peaksoft_foods.services_and_databases.DbHelperForFood;
 import peaksoft_foods.services_and_databases.impl.DbHelperForFoodImpl;
@@ -41,8 +42,15 @@ public class AddFoodsController {
     void onButtonClicked(ActionEvent event) {
         if (event.getSource().equals(btnSave)) {
             onSaveButtonClicked();
+            close();
         } else if (event.getSource().equals(btnCancel)) {
-            btnCancel.getScene().getWindow().hide();
+            close();
+        }
+    }
+
+    private void close() {
+        if (stage != null) {
+            stage.fireEvent(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
         }
     }
 
@@ -81,7 +89,7 @@ public class AddFoodsController {
         if (food != null) {
             this.food = food;
             txtName.setText(food.getName());
-            txtPrice.setText(String.valueOf(Double.parseDouble(String.valueOf(food.getPrice()))));
+            txtPrice.setText(String.valueOf(food.getPrice()));
             txtAmount.setText(String.valueOf(food.getAmount()));
         } else {
             this.food = new Food();

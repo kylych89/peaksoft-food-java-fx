@@ -41,10 +41,10 @@ public class DbHelperForFoodImpl implements DbHelperForFood {
             Class.forName("org.postgresql.Driver");
             Connection connection = getConnection();
             PreparedStatement ps = connection.prepareStatement("update foods set name = ? , price = ?, amount = ? where id = ?");
-            ps.setLong(1,food.getId());
-            ps.setString(2,food.getName());
-            ps.setDouble(3,food.getPrice());
-            ps.setInt(4,food.getAmount());
+            ps.setString(1,food.getName());
+            ps.setDouble(2,food.getPrice());
+            ps.setInt(3,food.getAmount());
+            ps.setLong(4,food.getId());
             ps.executeUpdate();
             connection.close();
             ps.close();

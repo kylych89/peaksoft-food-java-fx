@@ -35,6 +35,30 @@ public class DbHelperForUserImpl implements DbHelperForUser {
     }
 
     @Override
+    public User getUserByLogin(String login) {
+        User user = new User();
+        try {
+            Connection connection = getConnection();
+            PreparedStatement ps = connection.prepareStatement("select id, name, password from users where login = ?");
+            ps.setString(1,login);
+
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                user.setId(resultSet.getLong(1));
+                user.setName(resultSet.getString(2));
+                user.setPassword(resultSet.getString(3));
+                user.setLogin(login);
+            }
+            ps.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
+    @Override
     public List<User> getAllUser() {
 
 

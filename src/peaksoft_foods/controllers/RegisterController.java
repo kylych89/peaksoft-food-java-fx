@@ -45,8 +45,12 @@ public class RegisterController {
         if (event.getSource().equals(btnSave)) {
             onSaveButtonClicked();
         }else if (event.getSource().equals(btnCancel)) {
-            btnCancel.getScene().getWindow().hide();
+            close();
         }
+    }
+
+    private void close() {
+        btnCancel.getScene().getWindow().hide();
     }
 
     private void onSaveButtonClicked() {

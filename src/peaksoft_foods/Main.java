@@ -12,7 +12,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("fxml_files/main_page_fxmls/sample.fxml"));
         primaryStage.setTitle("Peaksoft Food");
-        primaryStage.setScene(new Scene(root, 1000, 800));
+        primaryStage.setScene(new Scene(root));
+        primaryStage.setMaxHeight(1000);
+        primaryStage.setMaxWidth(1200);
+        primaryStage.setMinHeight(700);
+        primaryStage.setMinWidth(1000);
         primaryStage.show();
     }
 

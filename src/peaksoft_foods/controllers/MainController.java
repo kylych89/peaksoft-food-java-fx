@@ -36,6 +36,9 @@ public class MainController {
     private Button btnDatabase;
 
     @FXML
+    private Button btnEnter;
+
+    @FXML
     void onButtonClicked(ActionEvent event) {
         if (event.getSource().equals(btnOrderMantu)) {
             showMantuPanel();
@@ -47,7 +50,21 @@ public class MainController {
             onButtonRegister();
         } else if (event.getSource().equals(btnDatabase)) {
             showDatabaseFoods();
+        } else if (event.getSource().equals(btnEnter)) {
+            showLoginPanel();
         }
+    }
+
+    private void showLoginPanel() {
+        Stage stage = new Stage();
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/peaksoft_foods/fxml_files/main_page_fxmls/login.fxml"));
+            stage.setScene(new Scene(parent, 400, 200));
+            stage.setTitle("Login");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.show();
     }
 
     private void showDatabaseFoods() {
