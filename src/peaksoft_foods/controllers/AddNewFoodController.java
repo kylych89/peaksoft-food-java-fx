@@ -12,8 +12,7 @@ import peaksoft_foods.models.Food;
 import peaksoft_foods.services_and_databases.DbHelperForFood;
 import peaksoft_foods.services_and_databases.impl.DbHelperForFoodImpl;
 
-public class AddFoodsController {
-
+public class AddNewFoodController {
     private Stage stage;
     private Food food;
 
@@ -36,41 +35,41 @@ public class AddFoodsController {
     private Button btnSave;
 
     @FXML
-    private Button btnCancel;
+    private Button btnClose;
 
     @FXML
     void onButtonClicked(ActionEvent event) {
         if (event.getSource().equals(btnSave)) {
             onSaveButtonClicked();
-            close();
-        } else if (event.getSource().equals(btnCancel)) {
+        } else if (event.getSource().equals(btnClose)) {
             close();
         }
+    }
+
+    private void onSaveButtonClicked() {
+        String name = txtName.getText();
+        Double price = Double.valueOf(txtPrice.getText());
+        Integer amount = Integer.valueOf(txtAmount.getText());
+
+        food.setName(name);
+        food.setPrice(price);
+        food.setAmount(amount);
+
+        DbHelperForFood dbHelperForFood = new DbHelperForFoodImpl();
+        if (food.getId() == null) {
+            dbHelperForFood.saveFood(food);
+        } else {
+            dbHelperForFood.updateFood(food);
+        }
+
+
+        clearFields();
     }
 
     private void close() {
         if (stage != null) {
             stage.fireEvent(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
         }
-    }
-
-    private void onSaveButtonClicked() {
-        String name = txtName.getText();
-        double price = Double.parseDouble(txtPrice.getText());
-        int amount = Integer.parseInt(txtAmount.getText());
-
-        food.setName(name);
-        food.setPrice(price);
-        food.setAmount(amount);
-
-        DbHelperForFood forFood = new DbHelperForFoodImpl();
-        if (food.getId() == null) {
-            forFood.saveFood(food);
-        } else {
-            forFood.updateFood(food);
-        }
-
-        clearFields();
     }
 
     private void clearFields() {
@@ -83,8 +82,9 @@ public class AddFoodsController {
     void initialize() {
     }
 
-    public void initData(Stage stage, Food food) {
+    public void initDate(Stage stage, Food food) {
         this.stage = stage;
+
 
         if (food != null) {
             this.food = food;
@@ -94,5 +94,6 @@ public class AddFoodsController {
         } else {
             this.food = new Food();
         }
+
     }
 }

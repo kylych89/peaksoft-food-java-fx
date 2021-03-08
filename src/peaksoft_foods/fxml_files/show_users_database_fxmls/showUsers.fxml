@@ -7,14 +7,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="567.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="peaksoft_foods.controllers.ShowFoodsInDatabaseController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="peaksoft_foods.controllers.ShowUsersInDatabaseController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Файл">
             <items>
-                  <MenuItem fx:id="mnItemUsers" mnemonicParsing="false" onAction="#onMenuItemClicked" text="Базадагы кардарлар" />
-                  <MenuItem fx:id="mnItemClose" mnemonicParsing="false" onAction="#onMenuItemClicked" text="Жабуу" />
+              <MenuItem fx:id="mnItemClose" mnemonicParsing="false" onAction="#onMenuItemClicked" text="Жабуу" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Өзгөртүүлөр">
@@ -25,19 +24,19 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Жардам">
             <items>
-              <MenuItem fx:id="mnItemAbout" mnemonicParsing="false" onAction="#onMenuItemClicked" text="Биз жөнүндө" />
+              <MenuItem mnemonicParsing="false" text="Биз жөнүндө" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
    </top>
    <center>
-      <TableView fx:id="tbFoods" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tbUsers" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="columnId" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="columnName" prefWidth="75.0" text="Тамактын аты" />
-            <TableColumn fx:id="columnPrice" prefWidth="75.0" text="Баасы" />
-            <TableColumn fx:id="columnAmount" prefWidth="75.0" text="Саны" />
+          <TableColumn fx:id="cloumnName" prefWidth="108.0" text="Кардардын аты" />
+            <TableColumn fx:id="cloumnLogin" prefWidth="130.0" text="Кардардын логини" />
+            <TableColumn fx:id="cloumnPassword" prefWidth="133.0" text="Кардардын сыр сөзу" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

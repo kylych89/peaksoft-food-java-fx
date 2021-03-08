@@ -4,6 +4,7 @@ import peaksoft_foods.models.User;
 import peaksoft_foods.services_and_databases.DbHelperForUser;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
 public class DbHelperForUserImpl implements DbHelperForUser {
 
     private Connection getConnection() throws SQLException {
-        Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/admin_of_food_service","postgres","010689");
+        Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/peaksoft_food_service","postgres","010689");
         return connection;
     }
 
@@ -28,7 +29,6 @@ public class DbHelperForUserImpl implements DbHelperForUser {
             ps.executeUpdate();
             connection.close();
             ps.close();
-
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -60,8 +60,45 @@ public class DbHelperForUserImpl implements DbHelperForUser {
 
     @Override
     public List<User> getAllUser() {
-
-
-        return null;
+        List<User> list = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet resultSet = null;
+        try {
+            connection = getConnection();
+            ps = connection.prepareStatement("select id, name, login, password from users");
+            resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                User user = new User();
+                user.setId(resultSet.getLong(1));
+                user.setName(resultSet.getString(2));
+                user.setLogin(resultSet.getString(3));
+                user.setPassword(resultSet.getString(4));
+                list.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            if (connection == null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } else if (ps == null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } else if (resultSet == null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return list;
     }
 }

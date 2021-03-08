@@ -52,7 +52,6 @@ public class LoginController {
 
         if (result) {
             System.out.println("ok");
-            close();
             showMainPage();
         } else {
             System.out.println("error");
@@ -63,7 +62,7 @@ public class LoginController {
     private void showMainPage() {
         Stage stage = new Stage();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/peaksoft_foods/fxml_files/add_and_register_fxmls/addFoodsToDatabase.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/peaksoft_foods/fxml_files/main_page_fxmls/mainPageFoods.fxml"));
             loader.load();
             stage.setScene(new Scene(loader.getRoot()));
         } catch (IOException e) {

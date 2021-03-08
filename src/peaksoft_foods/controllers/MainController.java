@@ -24,34 +24,14 @@ public class MainController {
     private Button btnRegister;
 
     @FXML
-    private Button btnOrderMantu;
-
-    @FXML
-    private Button btnOrderLagman;
-
-    @FXML
-    private Button btnOrderShorpo;
-
-    @FXML
-    private Button btnDatabase;
-
-    @FXML
     private Button btnEnter;
 
     @FXML
     void onButtonClicked(ActionEvent event) {
-        if (event.getSource().equals(btnOrderMantu)) {
-            showMantuPanel();
-        } else if (event.getSource().equals(btnOrderLagman)) {
-            showLagmanPanel();
-        } else if (event.getSource().equals(btnOrderShorpo)) {
-            showShorpoPanel();
-        } else if (event.getSource().equals(btnRegister)) {
-            onButtonRegister();
-        } else if (event.getSource().equals(btnDatabase)) {
-            showDatabaseFoods();
-        } else if (event.getSource().equals(btnEnter)) {
+        if (event.getSource().equals(btnEnter)) {
             showLoginPanel();
+        }  else if (event.getSource().equals(btnRegister)) {
+            onButtonRegister();
         }
     }
 
@@ -67,56 +47,8 @@ public class MainController {
         stage.show();
     }
 
-    private void showDatabaseFoods() {
-        Stage stage = new Stage();
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/peaksoft_foods/fxml_files/show_foods_database_fxmls/showFoodsInDatabase.fxml"));
-            stage.setScene(new Scene(parent, 1000, 800));
-            stage.setTitle("Database foods");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        stage.show();
-    }
-
     @FXML
     void initialize() {
-    }
-
-    private void showShorpoPanel() {
-        Stage stage = new Stage();
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/peaksoft_foods/fxml_files/order_fxmls/orderShorpo.fxml"));
-            stage.setScene(new Scene(parent, 600, 500));
-            stage.setTitle("Mantu");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        stage.show();
-    }
-
-    private void showLagmanPanel() {
-        Stage stage = new Stage();
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/peaksoft_foods/fxml_files/order_fxmls/orderLagman.fxml"));
-            stage.setScene(new Scene(parent, 600, 500));
-            stage.setTitle("Mantu");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        stage.show();
-    }
-
-    private void showMantuPanel() {
-        Stage stage = new Stage();
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/peaksoft_foods/fxml_files/order_fxmls/orderMantu.fxml"));
-            stage.setScene(new Scene(parent, 600, 500));
-            stage.setTitle("Mantu");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        stage.show();
     }
 
     private void onButtonRegister() {
