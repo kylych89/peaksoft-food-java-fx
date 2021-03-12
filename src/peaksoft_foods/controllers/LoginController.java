@@ -56,7 +56,12 @@ public class LoginController {
         } else {
             System.out.println("error");
         }
+        clearFields();
+    }
 
+    private void clearFields() {
+        txtLogin.clear();
+        txtPassword.clear();
     }
 
     private void showMainPage() {

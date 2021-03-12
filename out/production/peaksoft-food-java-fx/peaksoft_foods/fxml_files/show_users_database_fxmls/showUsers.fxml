@@ -20,7 +20,6 @@
             <items>
               <MenuItem fx:id="mnItemAdd" mnemonicParsing="false" onAction="#onMenuItemClicked" text="Кошуу" />
                   <MenuItem fx:id="mnItemEdit" mnemonicParsing="false" onAction="#onMenuItemClicked" text="Өзгөртүү" />
-                  <MenuItem fx:id="mnItemDelete" mnemonicParsing="false" onAction="#onMenuItemClicked" text="Өчүрүү" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Жардам">

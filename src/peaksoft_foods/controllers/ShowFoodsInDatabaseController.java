@@ -1,10 +1,5 @@
 package peaksoft_foods.controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,9 +12,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import peaksoft_foods.models.Food;
-import peaksoft_foods.models.User;
 import peaksoft_foods.services_and_databases.DbHelperForFood;
 import peaksoft_foods.services_and_databases.impl.DbHelperForFoodImpl;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class ShowFoodsInDatabaseController {
 

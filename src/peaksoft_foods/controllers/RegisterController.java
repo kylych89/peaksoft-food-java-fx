@@ -1,18 +1,21 @@
 package peaksoft_foods.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import peaksoft_foods.models.User;
 import peaksoft_foods.services_and_databases.DbHelperForUser;
 import peaksoft_foods.services_and_databases.impl.DbHelperForUserImpl;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class RegisterController {
+    private Stage stage;
+    private User user;
 
     @FXML
     private ResourceBundle resources;
@@ -39,12 +42,11 @@ public class RegisterController {
     void initialize() {
     }
 
-
     @FXML
     void onButtonClick(ActionEvent event) {
         if (event.getSource().equals(btnSave)) {
             onSaveButtonClicked();
-        }else if (event.getSource().equals(btnCancel)) {
+        } else if (event.getSource().equals(btnCancel)) {
             close();
         }
     }
@@ -57,9 +59,16 @@ public class RegisterController {
         String name = txtName.getText();
         String login = txtLogin.getText();
         String passwordText = txtPassword.getText();
-        User user = new User(name,login,passwordText);
+        User user = new User();
+        user.setName(name);
+        user.setLogin(login);
+        user.setPassword(passwordText);
         DbHelperForUser dbHelper = new DbHelperForUserImpl();
-        dbHelper.saveUser(user);
+        if (user.getId() == null) {
+            dbHelper.saveUser(user);
+        } else {
+            dbHelper.updateUser(user);
+        }
         clearFields();
     }
 
@@ -67,5 +76,18 @@ public class RegisterController {
         txtName.clear();
         txtLogin.clear();
         txtPassword.clear();
+    }
+
+    public void initDate(Stage stage, User user) {
+        this.stage = stage;
+        if (user != null) {
+//            this.stage = stage;
+            this.user = user;
+            txtName.setText(user.getName());
+            txtLogin.setText(user.getLogin());
+            txtPassword.setText(user.getPassword());
+        } else {
+            this.user = new User();
+        }
     }
 }

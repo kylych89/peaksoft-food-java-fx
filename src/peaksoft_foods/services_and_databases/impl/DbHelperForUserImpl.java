@@ -35,6 +35,24 @@ public class DbHelperForUserImpl implements DbHelperForUser {
     }
 
     @Override
+    public void updateUser(User user) {
+        try {
+            Class.forName("org.postgresql.Driver");
+            Connection connection = getConnection();
+            PreparedStatement ps = connection.prepareStatement("update users set name = ?, login = ?, password = ? where id = ?");
+            ps.setString(1,user.getName());
+            ps.setString(2,user.getLogin());
+            ps.setString(3,user.getPassword());
+            ps.setLong(4,user.getId());
+            ps.executeUpdate();
+            ps.close();
+            connection.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public User getUserByLogin(String login) {
         User user = new User();
         try {
@@ -56,6 +74,12 @@ public class DbHelperForUserImpl implements DbHelperForUser {
         }
 
         return user;
+    }
+
+    @Override
+    public boolean deleteUserByLogin(String login) {
+
+        return false;
     }
 
     @Override

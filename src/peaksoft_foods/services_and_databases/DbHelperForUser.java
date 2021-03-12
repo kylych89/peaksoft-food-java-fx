@@ -9,7 +9,8 @@ import java.util.List;
  */
 public interface DbHelperForUser {
     void saveUser(User user);
+    void updateUser(User user);
     User getUserByLogin(String login);
-
+    boolean deleteUserByLogin(String login);
     List<User> getAllUser();
 }
