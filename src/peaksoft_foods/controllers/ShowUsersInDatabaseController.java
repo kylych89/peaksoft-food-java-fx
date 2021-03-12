@@ -74,7 +74,7 @@ public class ShowUsersInDatabaseController {
             stage.setScene(new Scene(loader.getRoot()));
             RegisterController controller = loader.getController();
             User user = tbUsers.getSelectionModel().getSelectedItem();
-            controller.initDate(stage, user);
+            controller.deleteCurrUser(stage, user);
             stage.setOnCloseRequest(windowEvent -> {
                 refresh();
             });
@@ -82,6 +82,7 @@ public class ShowUsersInDatabaseController {
             e.printStackTrace();
         }
         stage.show();
+
     }
 
     private void userRegister() {

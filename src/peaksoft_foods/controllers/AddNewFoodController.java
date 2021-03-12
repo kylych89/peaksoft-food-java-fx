@@ -94,6 +94,11 @@ public class AddNewFoodController {
         } else {
             this.food = new Food();
         }
+    }
 
+    public void deleteCurrFood(Stage stage, Food food) {
+        this.stage = stage;
+        DbHelperForFood dbHelperForFood = new DbHelperForFoodImpl();
+        dbHelperForFood.deleteFoodById(food.getId());
     }
 }

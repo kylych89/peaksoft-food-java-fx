@@ -10,5 +10,7 @@ import java.util.List;
 public interface DbHelperForFood {
     void saveFood(Food food);
     void updateFood(Food food);
+    Food findFoodById(Long id);
+    int deleteFoodById(Long id);
     List<Food> getAllFoods();
 }

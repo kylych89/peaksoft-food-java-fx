@@ -90,4 +90,10 @@ public class RegisterController {
             this.user = new User();
         }
     }
+
+    public void deleteCurrUser(Stage stage, User user) {
+        this.stage = stage;
+            DbHelperForUser dbHelperForUser = new DbHelperForUserImpl();
+            dbHelperForUser.deleteUserById(user.getId());
+    }
 }

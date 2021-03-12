@@ -7,7 +7,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import peaksoft_foods.services_and_databases.LoginService;
@@ -54,7 +56,8 @@ public class LoginController {
             System.out.println("ok");
             showMainPage();
         } else {
-            System.out.println("error");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Incorrect", ButtonType.OK);
+            alert.show();
         }
         clearFields();
     }

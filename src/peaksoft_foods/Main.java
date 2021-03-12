@@ -9,8 +9,8 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("fxml_files/show_foods_database_fxmls/showFoodsInDatabase.fxml"));
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("fxml_files/main_page_fxmls/globalMain.fxml"));
         primaryStage.setTitle("Peaksoft Food");
         primaryStage.setScene(new Scene(root));
         primaryStage.setMaxHeight(1000);

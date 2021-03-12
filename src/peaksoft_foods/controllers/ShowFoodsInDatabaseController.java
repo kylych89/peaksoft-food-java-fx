@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -41,6 +42,9 @@ public class ShowFoodsInDatabaseController {
     private MenuItem mnItemUsers;
 
     @FXML
+    private MenuItem mnItemDelete;
+
+    @FXML
     private MenuItem mnItemAbout;
 
     @FXML
@@ -68,7 +72,27 @@ public class ShowFoodsInDatabaseController {
             close();
         } else if (event.getSource().equals(mnItemUsers)) {
             showUsers();
+        } else if (event.getSource().equals(mnItemDelete)) {
+            deleteCurrFood();
         }
+    }
+
+    private void deleteCurrFood() {
+        Stage stage = new Stage();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/peaksoft_foods/fxml_files/add_and_register_fxmls/addNewFood.fxml"));
+            loader.load();
+            stage.setScene(new Scene(loader.getRoot()));
+            AddNewFoodController addNewFood = loader.getController();
+            Food food = tbFoods.getSelectionModel().getSelectedItem();
+            addNewFood.deleteCurrFood(stage, food);
+            stage.setOnCloseRequest(windowEvent -> {
+                refresh();
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.show();
     }
 
     private void addNewFood() {

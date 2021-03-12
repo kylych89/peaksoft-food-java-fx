@@ -53,6 +53,80 @@ public class DbHelperForFoodImpl implements DbHelperForFood {
     }
 
     @Override
+    public Food findFoodById(Long id) {
+        Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = getConnection();
+            ps = connection.prepareStatement("select name , price, amount from foods where id = ?");
+            ps.setLong(1, id);
+            resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                Food food = new Food();
+                food.setName(resultSet.getString(1));
+                food.setPrice(resultSet.getDouble(2));
+                food.setAmount(resultSet.getInt(3));
+                food.setId(id);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            if (connection == null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } else if (ps == null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } else if (resultSet == null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public int deleteFoodById(Long id) {
+        Connection connection = null;
+        PreparedStatement ps = null;
+        int delete = 0;
+        try {
+            connection = getConnection();
+            ps = connection.prepareStatement("delete from foods where id = ?");
+            ps.setLong(1, id);
+            delete = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            if (connection == null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } else if (ps == null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return delete;
+    }
+
+    @Override
     public List<Food> getAllFoods() {
         List<Food> list = new ArrayList<>();
         Connection connection = null;

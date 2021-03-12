@@ -1,5 +1,6 @@
 package peaksoft_foods.services_and_databases.impl;
 
+import peaksoft_foods.models.Food;
 import peaksoft_foods.models.User;
 import peaksoft_foods.services_and_databases.DbHelperForUser;
 
@@ -77,9 +78,33 @@ public class DbHelperForUserImpl implements DbHelperForUser {
     }
 
     @Override
-    public boolean deleteUserByLogin(String login) {
-
-        return false;
+    public int deleteUserById(Long id) {
+        Connection connection = null;
+        PreparedStatement ps = null;
+        int delete = 0;
+        try {
+            connection = getConnection();
+            ps = connection.prepareStatement("delete from users where id = ?;");
+            ps.setLong(1, id);
+            delete = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            if (connection == null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } else if (ps == null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return delete;
     }
 
     @Override
