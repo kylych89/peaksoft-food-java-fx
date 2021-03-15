@@ -39,6 +39,7 @@ public class LoginController {
     void onButtonClicked(ActionEvent event) {
         if (event.getSource().equals(btnEnter)) {
             enter();
+            close();
         } else if (event.getSource().equals(btnCancel)) {
             close();
         }
